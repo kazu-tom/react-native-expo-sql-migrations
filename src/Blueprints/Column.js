@@ -10,6 +10,15 @@ export default class Column {
         return this;
     }
 
+    primaryAutoIncrement(){
+        if (this.type === 'INTEGER') {
+            this.constraints += ' PRIMARY KEY AUTOINCREMENT';
+        } else {
+            this.constraints += ' PRIMARY KEY';
+        }
+        return this;
+    }
+
     unique(){
         this.constraints += ' UNIQUE';
         return this;
@@ -28,4 +37,5 @@ export default class Column {
         this.constraints += ` DEFAULT (${value})`;
         return this;
     }
+
 }
